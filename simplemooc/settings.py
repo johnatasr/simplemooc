@@ -32,9 +32,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'simplemooc.contas',
+
     'simplemooc.courses',
     'simplemooc.core',
+    'simplemooc.accounts',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -144,8 +146,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 CONTACT_EMAIL = 'contato@simplemooc.com'
 
 #auth
-#
-# LOGIN_URL = 'contas:login'
-# LOGIN_REDIRECT_URL = '/'
-# LOGOUT_URL = 'contas:logout'
-# LOGOUT_REDIRECT_URL = '/'
+
+LOGIN_URL = 'accounts:login'
+LOGIN_REDIRECT_URL = 'core:home'
+LOGOUT_URL = 'accounts:logout'
+LOGOUT_REDIRECT_URL = '/'
+
+

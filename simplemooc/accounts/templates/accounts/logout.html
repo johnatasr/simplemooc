@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="pure-g-r content-ribbon">
+    <div class="pure-u-1">
+        <form class="pure-form pure-form-stacked" method="post">
+
+            <fieldset>
+                <h1>Obrigado, volte sempre!</h1>
+
+                <div class="pure-controls">
+                    <a href="{% url 'core:home' %}" type="button">Voltar</a>
+                </div>
+
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+

@@ -7,7 +7,7 @@
     <meta name="description" content="Simple MOOC - Uma simples plataforma de ensino a distância" />
     <title>Simple MOOC</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
 </head>
 <body>
 <div class="header">
@@ -17,20 +17,25 @@
             <li class="pure-menu-selected"><a href="{% url 'core:home' %}">Início</a></li>
             <li><a href="{% url 'courses:index' %}">Cursos</a></li>
             <li><a href="{% url 'core:contact' %}">Contato</a></li>
+            <li><a href="{% url 'accounts:dash' %}">Painel</a></li>
             {% if user.is_authenticated %}
-            <li><a href="{% url 'contas:logout' %}">Sair</a></li>
+            <li><a href="{% url 'accounts:logout' %}">Sair</a></li>
             {% else %}
-            <li><a href="{% url 'contas:login' %}">Entrar</a></li>
+            <li><a href="{% url 'accounts:login' %}">Entrar</a></li>
             {% endif %}
+            <li>{{ user }}</li>
+            <!--<li>{% if user == "AnonymousUser" %}<h3>Convidado</h3>{% endif %}</li>-->
         </ul>
+
+
     </div>
 </div>
-<div class="content">
-    {% block content %}{% endblock %}
-    <div class="footer">
-        Simple MOOC - Uma simples plataforma de ensino a distância
+    <div class="content">
+        {% block content %}{% endblock %}
+        <div class="footer">
+            Simple MOOC - Uma simples plataforma de ensino a distância
+        </div>
     </div>
-</div>
 <script src="http://yui.yahooapis.com/3.12.0/build/yui/yui-min.js"></script>
 </body>
 </html>

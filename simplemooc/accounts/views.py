@@ -1,12 +1,19 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
-from .forms import RegistroForm
+from django.conf import settings
+
+from . forms import RegisterForm
+
+def dashboard(request):
+    template_name= 'accounts/dashboard.html'
+    return render(request, template_name)
+
 
 def register(request):
-    template_name = 'contas/registro.html'
+    template_name = 'accounts/register.html'
     if request.method == 'POST':
-        form = RegistroForm(request.POST)
+        form = RegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
             user = authenticate(
@@ -15,9 +22,10 @@ def register(request):
             login(request, user)
             return redirect('core:home')
     else:
-        form = RegistroForm()
-    context = {
+        form = RegisterForm()
+
+    context ={
         'form': form
     }
-    return render(request, template_name, context)
 
+    return render(request, template_name, context)

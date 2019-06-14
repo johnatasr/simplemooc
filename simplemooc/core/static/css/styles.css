@@ -91,3 +91,9 @@ ul.errorlist li {
 form.pure-form-aligned ul.errorlist li {
     padding-left: 11.5em;
 }
+
+/* Div do user */
+
+.user-block {
+    padding-left: 45px
+}

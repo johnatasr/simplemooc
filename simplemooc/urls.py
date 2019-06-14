@@ -20,13 +20,14 @@ from django.conf import settings
 
 app_name = 'core'
 app_name = 'courses'
-app_name = 'contas'
+app_name = 'accounts'
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('simplemooc.core.urls', namespace='core')),
     path('cursos/', include('simplemooc.courses.urls', namespace='index')),
-    path('conta/', include('simplemooc.contas.urls', namespace='contas')),
+    path('conta/', include('simplemooc.accounts.urls', namespace='accounts')),
 
 ]
 if settings.DEBUG:
